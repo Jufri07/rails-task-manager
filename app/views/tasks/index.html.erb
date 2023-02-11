@@ -1,9 +1,30 @@
-<h1>My Tasks</h2>
+<body style="background-color: lightyellow;">
 
-<ul>
-  <% @tasks.each do |task| %>
-    <li><%= link_to task.title, task_path(task)%></li>
-  <% end %>
-</ul>
+  <h1>My Tasks</h2>
 
-<%= link_to('Add new task', tasks_new_path) %>
+  <ul>
+    <% @tasks.each do |task| %>
+      <li>
+        <input type="checkbox" id="task_<%= task.id %>">
+        <label for="task_<%= task.id %>"><%= link_to task.title, task_path(task) %></label>
+        <button class="delete-icon"><i class="fa fa-trash"></i></button>
+    <% end %>
+    </li>
+  </ul>
+
+  <%= link_to('Add new task', tasks_new_path) %>
+
+
+  <style>
+    .delete-icon {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    .fa-trash {
+      font-size: 0.8em;
+      color: #333;
+    }
+  </style>
+</body>

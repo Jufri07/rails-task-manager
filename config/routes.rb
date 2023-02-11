@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   patch 'tasks/:id', to: 'tasks#update', as: :task_update
 
   post '/tasks', to: 'tasks#create'
+
+  delete '/tasks/:id', to: 'tasks#destroy'
 end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
